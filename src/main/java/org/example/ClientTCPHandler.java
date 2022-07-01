@@ -53,12 +53,11 @@ public class ClientTCPHandler {
         int wordsCount = c;
         String replacedString = input.replace(" ", "-");
 
-        Result result = new Result();
-        Frase frase = new Frase(letterCount, wordsCount, replacedString);
+        FraseResult result = null;
 
-        result.AggiungiFrase(frase);
-
+         result = new FraseResult(new Frase(letterCount, wordsCount, replacedString));
         String json = gson.toJson(result);
+
         return json;
     }
 
